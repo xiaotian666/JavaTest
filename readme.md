@@ -165,3 +165,9 @@ public class Test {
 ## Number类
 ![](image/13.jpg)
 
+## String注意
+![](image/14.jpg)
+
+***
+## Created by[xiaotian](xiaotian.html)
+

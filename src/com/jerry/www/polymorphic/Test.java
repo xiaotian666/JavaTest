@@ -29,7 +29,6 @@ public class Test {
 
 class Animal {
     void eat(){
-
     }
 }
 

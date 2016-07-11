@@ -1,29 +1,98 @@
 package com.jerry.www.Test;
 
 /**
- * Created by Jerry on 2016/6/3.
+ * Created by Jerry on 2016/7/11.
+ * Java5新特征之foreach语句使用总结
  */
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+
 public class TestArray {
+    public static void main(String args[]) {
+        TestArray test = new TestArray();
+        test.test1();
+        test.listToArray();
+        test.testArray3();
 
-    public static void main(String[] args) {
-        double[] myList = {1.9, 2.9, 3.4, 3.5};
+    }
 
-        // 打印所有数组元素
-        for (int i = 0; i < myList.length; i++) {
-            System.out.print(myList[i] + " ");
+    /**
+     * foreach语句输出一维数组
+     */
+    public void test1() {
+        //定义并初始化一个数组
+        int arr[] = {2, 3, 1};
+        System.out.println("----1----排序前的一维数组");
+        for (int x : arr) {
+            System.out.println(x); //逐个输出数组元素的值
         }
-        // 计算所有元素的总和
-        System.out.println();
-        double total = 0;
-        for (int i = 0; i < myList.length; i++) {
-            total += myList[i];
+
+        //对数组排序
+        Arrays.sort(arr);
+
+        //利用java新特性for each循环输出数组
+        System.out.println("----1----排序后的一维数组");
+        for (int x : arr) {
+            System.out.println(x); //逐个输出数组元素的值
         }
-        System.out.println("Total is " + total);
-        // 查找最大元素
-        double max = myList[0];
-        for (int i = 1; i < myList.length; i++) {
-            if (myList[i] > max) max = myList[i];
+    }
+
+    /**
+     * 集合转换为一维数组
+     */
+    public void listToArray() {
+        //创建List并添加元素
+        List<String> list = new ArrayList<String>();
+        list.add("1");
+        list.add("3");
+        list.add("4");
+
+        //利用froeach语句输出集合元素
+        System.out.println("----2----froeach语句输出集合元素");
+        for (String x : list) {
+            System.out.println(x);
         }
-        System.out.println("Max is " + max);
+
+        //将ArrayList转换为数组
+        Object s[] = list.toArray();
+
+        //利用froeach语句输出集合元素
+        System.out.println("----2----froeach语句输出集合转换而来的数组元素");
+        for (Object x : s) {
+            System.out.println(x.toString()); //逐个输出数组元素的值
+        }
+    }
+
+    /**
+     * foreach输出二维数组测试
+     */
+    public void testArray2() {
+        int arr2[][] = {{4, 3}, {1, 2}};
+        System.out.println("----3----foreach输出二维数组测试");
+        for (int x[] : arr2) {
+            for (int e : x) {
+                System.out.println(e); //逐个输出数组元素的值
+            }
+        }
+    }
+
+    /**
+     * foreach输出三维数组
+     */
+    public void testArray3() {
+        int arr[][][] = {
+                {{1, 2}, {3, 4}},
+                {{5, 6}, {7, 8}}
+        };
+
+        System.out.println("----4----foreach输出三维数组测试");
+        for (int[][] a2 : arr) {
+            for (int[] a1 : a2) {
+                for (int x : a1) {
+                    System.out.println(x);
+                }
+            }
+        }
     }
 }
